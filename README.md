@@ -1,6 +1,6 @@
 # githubsecret
 
-A Go package for encrypting GitHub secrets. It utilizes hashing and encryption APIs from `github.com/x/crypto` and does not require libsodium C bindings.
+A Go package for encrypting GitHub secrets. It uses hashing and encryption APIs from `github.com/x/crypto` and does not require libsodium C bindings.
 
 ## Usage
 
