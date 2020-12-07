@@ -1,6 +1,6 @@
 # githubsecret
 
-A Go package for encrypting GitHub secrets. It uses hashing and encryption APIs from `github.com/x/crypto` and does not require libsodium C bindings.
+A Go package for encrypting GitHub secrets. It uses hashing and encryption APIs from [golang.org/x/crypto](https://golang.org/x/crypto) and does not require libsodium C bindings.
 
 ## Usage
 
@@ -18,7 +18,6 @@ import (
 func main() {
     // 1. obtain your repository's public key:
     // https://docs.github.com/en/free-pro-team@latest/rest/reference/actions#get-a-repository-public-key
-
 
     // 2. encrypt your secret
     encrypted, err := githubsecret.Encrypt(repoPublicKey, content)
