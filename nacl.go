@@ -45,7 +45,7 @@ func Encrypt(recipientPublicKey string, content string) (string, error) {
 		return "", err
 	}
 
-	copy(nonce[:], nonceHash.Sum([]byte{}))
+	copy(nonce[:], nonceHash.Sum(nil))
 
 	// begin the output with the ephemeral public key and append the encrypted content
 	out := box.Seal(pubKey[:], []byte(content), nonce, recipientKey, privKey)
