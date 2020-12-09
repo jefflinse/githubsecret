@@ -19,7 +19,7 @@ func main() {
 	flag.Parse()
 
 	if len(flag.Args()) < 3 {
-		fmt.Printf("usage: %s owner repo secret-id secret-value", os.Args[0])
+		fmt.Printf("usage: %s [-dry] owner repo secret-id secret-value", os.Args[0])
 		os.Exit(1)
 	}
 

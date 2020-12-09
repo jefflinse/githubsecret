@@ -3,6 +3,7 @@ package githubsecret
 import (
 	"crypto/rand"
 	"encoding/base64"
+	"fmt"
 
 	"golang.org/x/crypto/blake2b"
 	"golang.org/x/crypto/nacl/box"
@@ -13,6 +14,9 @@ const (
 	nonceSize = 24
 )
 
+// Test indirection
+var generateKey = box.GenerateKey
+
 // Encrypt encrypts a secret using the provided recipient public key.
 func Encrypt(recipientPublicKey string, content string) (string, error) {
 	// decode the provided public key from base64
@@ -20,12 +24,14 @@ func Encrypt(recipientPublicKey string, content string) (string, error) {
 	b, err := base64.StdEncoding.DecodeString(recipientPublicKey)
 	if err != nil {
 		return "", err
+	} else if size := len(b); size != keySize {
+		return "", fmt.Errorf("recipient public key has invalid length (%d bytes)", size)
 	}
 
 	copy(recipientKey[:], b)
 
 	// create an ephemeral key pair
-	pubKey, privKey, err := box.GenerateKey(rand.Reader)
+	pubKey, privKey, err := generateKey(rand.Reader)
 	if err != nil {
 		return "", err
 	}
