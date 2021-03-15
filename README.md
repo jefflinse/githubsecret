@@ -58,10 +58,6 @@ $ ./putsecret owner repo secret_id "secret value"
 
 Go to the Secrets page in your repository's settings and you should see your secret listed.
 
-## Contributing
+## Issues
 
-1. Make your changes in a new branch.
-1. Test your changes locally and make sure all UTs pass. Add or update tests to ensure all code is covered.
-1. Push your branch and create a pull request.
-1. Label your PR with one of `major release`, `minor release`, or `patch release` depending on the nature of your changes.
-1. After approval and merging, [pr-semver-bump](https://github.com/jefflinse/pr-semver-bump) will automatically create a new release.
+Please [open an issue](https://github.com/jefflinse/githubsecret/issues/new) if you discover one.
